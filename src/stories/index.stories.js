@@ -1,17 +1,26 @@
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
+import { withDesign } from 'storybook-addon-designs'
 
 import MyButton from '../components/MyButton.vue'
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
+  decorators: [withDesign]
 }
 
 export const withText = () => ({
   components: { MyButton },
   template: '<my-button @click="action">Hello Button</my-button>',
-  methods: { action: action('clicked') }
+  methods: { action: action('clicked') },
 })
+
+withText.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/25bkkW4ZKiJNAd6aUkfEpU/Core-Design-System?node-id=0%3A1104'
+  }
+}
 
 export const withJSX = () => ({
   render() {

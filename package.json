@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run storybook:serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -10,22 +11,27 @@
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
   },
   "dependencies": {
+    "@storybook/preset-scss": "^1.0.3",
     "core-js": "^3.6.5",
+    "css-loader": "^5.1.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.1.21",
-    "@storybook/addon-essentials": "6.1.21",
-    "@storybook/addon-links": "6.1.21",
-    "@storybook/theming": "^6.1.21",
-    "@storybook/vue": "6.1.21",
+    "@storybook/addon-a11y": "^6.2.0-beta.11",
+    "@storybook/addon-essentials": "6.2.0-beta.11",
+    "@storybook/addon-links": "6.2.0-beta.11",
+    "@storybook/theming": "^6.2.0-beta.11",
+    "@storybook/vue": "6.2.0-beta.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "storybook-addon-designs": "^5.4.5",
+    "storybook-addon-designs": "^6.0.0-alpha.3",
     "storybook-contrast": "^0.11.6",
     "vue-cli-plugin-storybook": "^2.0.0",
     "vue-template-compiler": "^2.6.11"

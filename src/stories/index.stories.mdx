@@ -1,7 +1,7 @@
 import { Meta, ArgsTable, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
-import MyButton from '../components/MyButton.vue';
+import MyButton from '../components/button/button';
 
 <Meta title="MDX|Button" component={MyButton} />
 
@@ -12,7 +12,7 @@ import MyButton from '../components/MyButton.vue';
 This is a simple button with some text in it.
 
 <Canvas>
-  <Story name="With Text">
+  <Story name="Primary">
     {{
         components: { MyButton },
         template: '<my-button @click="action">Hello Button</my-button>',

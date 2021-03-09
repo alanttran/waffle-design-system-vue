@@ -1,0 +1,40 @@
+// main: style.scss
+
+html {
+  font-family: $w-font-family;
+}
+
+h1 {
+  font-size: $w-headings-h1; // 40px
+  font-weight: $w-font-weight-bold;
+}
+h2 {
+  font-size: $w-headings-h2; // 32px
+  font-weight: $w-font-weight-bold;
+}
+h3 {
+  font-size: $w-headings-h3; // 28px
+  font-weight: $w-font-weight-bold;
+}
+h4 {
+  font-size: $w-headings-h4; // 24px
+  font-weight: $w-font-weight-bold;
+}
+h5 {
+  font-size: $w-headings-h5; // 20px
+  font-weight: $w-font-weight-bold;
+}
+h6 {
+  font-size: $w-headings-h6; // 16px
+  font-weight: $w-font-weight-bold;
+}
+
+p {
+  // WCAG 1.4.8 Visual Presentation
+  line-height: 1.5;
+  color: $w-dark-2;
+}
+
+a {
+  color: $w-primary-main;
+}

@@ -1,0 +1,140 @@
+// main: style.scss
+
+@mixin button { 
+  display: inline-block;
+  padding: 8.65248px 14px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  min-width: 100px;
+  font-family: $w-font-family;
+  box-shadow: $w-light-elevation-02;
+  &:disabled {
+    color: $w-dark-4;
+    background: $w-light-0;
+    cursor: default;
+    &:hover,
+    :active {
+      background: $w-light-0;
+      color: $w-dark-4;
+    }
+  }
+}
+
+.w-button-primary {
+  @include button;
+  background-color: $w-primary-darker;
+  color: white;
+  &:hover {
+    background-color: $w-primary-lighter;
+  }
+  &:active {
+    background-color: $w-primary-darker;
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px $w-primary-subtle;
+    outline: none;
+  }
+}
+
+.w-button-secondary {
+  @include button;
+  background-color: $w-light-4;
+  border-color: $w-primary-main;
+  &:hover {
+    background-color: darken($w-light-4, 5);
+  }
+  &:active {
+    background-color: darken($w-light-4, 10);
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px $w-primary-subtle;
+    outline: none;
+  }
+}
+
+.w-dark {
+  .w-button-secondary {
+    background-color: transparent;
+    &:hover {
+      background-color: lighten($w-dark-1, 10);
+    }
+    &:active {
+      background-color: lighten($w-dark-1, 15);
+    }
+    &:focus {
+      box-shadow: 0 0 0 3px $w-primary-darker;
+    }
+  }
+}
+
+.w-button-progressive {
+  @include button;
+  background-color: $w-green-1;
+  color: $w-light-4;
+  &:hover {
+    background-color: $w-green-2;
+  }
+  &:active {
+    background-color: $w-green-0;
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px $w-green-4;
+    outline: none;
+  }
+}
+
+.w-button-destructive {
+  @include button;
+  background-color: $w-red-1;
+  color: $w-light-4;
+  &:hover {
+    background-color: $w-red-2;
+  }
+  &:active {
+    background-color: $w-red-0;
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px $w-red-4;
+    outline: none;
+  }
+}
+
+[aria-pressed="true"] {
+  box-shadow: inset 0 0 5px 1px $w-dark-3;
+}
+
+.w-button-icon {
+  padding: 10px 12px;
+  width: 40px;
+  min-width: auto;
+}
+
+.w-dark {
+  .w-button-primary {
+    &:focus {
+      box-shadow: 0 0 0 3px $w-primary-darker;
+    }
+  }
+  .w-button-secondary {
+    background-color: transparent;
+    &:focus {
+      box-shadow: 0 0 0 3px $w-primary-darker;
+    }
+  }
+  .w-button-progressive {
+    &:focus {
+      box-shadow: 0 0 0 3px $w-green-0;
+    }
+  }
+  .w-button-destructive {
+    &:focus {
+      box-shadow: 0 0 0 3px $w-red-0;
+    }
+  }
+}

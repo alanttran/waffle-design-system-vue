@@ -5,6 +5,6 @@ module.exports = {
     '@storybook/addon-links', 
     'storybook-addon-designs',
     '@storybook/addon-a11y',
-    '@storybook/preset-scss'
+    '@whitespace/storybook-addon-html'
   ]
 }

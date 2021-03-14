@@ -1,21 +1,25 @@
 <template>
-  <button class="w-button-primary" @click="onClick">
+  <button 
+    :type="isSubmit ? 'submit' : 'button'" 
+    :class="className" 
+    @click="onClick">
     <!-- @slot default inner button content -->
+    {{ text }}
     <slot></slot>
   </button>
 </template>
 
 <script>
 export default {
-  name: 'my-button',
-
+  name: 'Button',
+  props:{
+    className: {type: String, default: 'w-button-primary'},
+    text: {type: String, default: 'button'},
+    disabled: {type: Boolean, default: false},
+    isSubmit: {type: Boolean, default: false}
+  },
   methods: {
     onClick() {
-      /**
-       * Click event
-       *
-       * @event click
-       */
       this.$emit('click')
     }
   }

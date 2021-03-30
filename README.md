@@ -1,5 +1,7 @@
 # waffle-design-system-vue
 
+See [Demo](https://alanttran.github.io/waffle-design-system-vue/).
+
 ## Project setup
 ```
 npm install

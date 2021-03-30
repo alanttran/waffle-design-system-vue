@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     sort: function (order) {
+    // sort depending on the choice click event above    
       switch (order) {
         case "a-z":
           this.experiments = this.experiments.sort((a, b) =>

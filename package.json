@@ -8,8 +8,12 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
+    "predeploy": "npm run build-storybook",    
+    "deploy-storybook": "gh-pages -d storybook-static",    
+    "build-storybook": "build-storybook"
   },
+  "homepage": "https://github.com/alanttran/waffle-design-system-vue",
   "dependencies": {
     "@storybook/preset-scss": "^1.0.3",
     "@whitespace/storybook-addon-html": "^4.2.0",
@@ -32,6 +36,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^3.1.0",
     "storybook-addon-designs": "^6.0.0-alpha.3",
     "storybook-contrast": "^0.11.6",
     "vue-cli-plugin-storybook": "^2.0.0",

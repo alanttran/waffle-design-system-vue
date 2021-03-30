@@ -1,15 +1,15 @@
-// main: ../../style/style.scss
+// main: ../../../style/style.scss
 
 @mixin button { 
   display: inline-block;
-  padding: 8.65248px 14px;
+  padding: 8px;
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
   border: 1px solid transparent;
   border-radius: 8px;
   height: 40px;
-  font-weight: 500;
+  font-weight: $w-font-weight-quartbold;
   font-size: 1rem;
   min-width: 100px;
   font-family: $w-font-family;
@@ -17,7 +17,8 @@
   &:disabled {
     color: $w-dark-4;
     background: $w-light-0;
-    cursor: default;
+    cursor: not-allowed ;
+    box-shadow: none;
     &:hover,
     :active {
       background: $w-light-0;

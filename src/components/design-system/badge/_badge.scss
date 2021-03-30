@@ -1,0 +1,44 @@
+// main: ../../../style/style.scss
+
+@mixin badge($text, $bg){
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: $text;
+    background: $bg;
+    width: max-content;
+    box-sizing: border-box;
+  }
+  
+  .w-badge{
+    &-info{ 
+      @include badge($w-blue-0, $w-blue-4);
+    }
+    &-success{ 
+      @include badge($w-green-0, $w-green-4);
+    }
+    &-warning{ 
+      @include badge($w-orange-0, $w-orange-4);
+    }
+    &-danger{ 
+      @include badge($w-red-0, $w-red-4);
+    }
+    &-reminder{ 
+      @include badge($w-yellow-0, $w-yellow-4);
+    }
+    &-misc{ 
+      @include badge($w-teal-0, $w-teal-4);
+    }
+    &-unavailable{ 
+      @include badge($w-dark-3, $w-light-0);
+    }
+    &-primary{ 
+      @include badge($w-primary-main, $w-light-3);
+    }
+  }

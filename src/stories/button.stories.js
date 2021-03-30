@@ -2,10 +2,10 @@ import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 import { withDesign } from 'storybook-addon-designs'
 
-import Button from '../components/button/button.vue'
+import Button from '../components/design-system/button/button.vue'
 
 export default {
-  title: 'Components/Button',
+  title: 'DesignSystem/Button',
   decorators: [withDesign]
 }
 
@@ -47,6 +47,13 @@ Submit.args = {
   isSubmit: true
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  className: 'w-button-primary',
+  text: 'Disabled',
+  isDisabled: true
+};
+
 // export const primary = () => ({
 //   components: { Button },
 //   template: '<Button @click="action">Hello Button</Button>',
@@ -61,13 +68,13 @@ Primary.parameters = {
 }
 
 
-export const withJSX = () => ({
-  render() {
-    return <Button onClick={linkTo('Button', 'With Some Emoji')}>With JSX</Button>;
-  }
-})
+// export const withJSX = () => ({
+//   render() {
+//     return <Button onClick={linkTo('Button', 'With Some Emoji')}>With JSX</Button>;
+//   }
+// })
 
-export const withSomeEmoji = () => ({
-  components: { Button },
-  template: '<Button>😀 😎 👍 💯</Button>'
-})
+// export const withSomeEmoji = () => ({
+//   components: { Button },
+//   template: '<Button>😀 😎 👍 💯</Button>'
+// })

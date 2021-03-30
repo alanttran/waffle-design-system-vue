@@ -1,0 +1,297 @@
+{
+  "Response": {
+    "Items": [
+      {
+        "Id": "156523371",
+        "Href": "v1pre3/runs/156523371",
+        "Number": 0,
+        "ExperimentName": "NovaSeq 6000 SP Xp: SureCell RNA Single-Cell (24 replicates of HEK293)",
+        "Status": "Complete",
+        "DateCreated": "2019-01-28T20:09:29.0000000Z",
+        "DateModified": "2019-02-01T06:44:30.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 47324715018,
+        "PlatformName": "NovaSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 9191182,
+          "Name": "A00525"
+        },
+        "InstrumentName": "A00525",
+        "InstrumentType": "NovaSeq6000",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/156523371/NovaSeq-6000-SP-Xp-SureCell-RNA-Single-Cell-24-replicates-of-HEK293",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2019-01-28T20:09:30.0000000Z",
+        "DateInstrumentCompleted": "2019-01-29T01:23:27.0000000Z"
+      },
+      {
+        "Id": "156070919",
+        "Href": "v1pre3/runs/156070919",
+        "Number": 0,
+        "ExperimentName": "NovaSeq 6000 SP: Metagenomics (ATCC Microbiome Standard MSA-1002 and MSA-1003)",
+        "Status": "Complete",
+        "DateCreated": "2019-01-26T03:21:21.0000000Z",
+        "DateModified": "2019-02-01T06:42:53.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 146458428589,
+        "PlatformName": "NovaSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 9191182,
+          "Name": "A00525"
+        },
+        "InstrumentName": "A00525",
+        "InstrumentType": "NovaSeq6000",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/156070919/NovaSeq-6000-SP-Metagenomics-ATCC-Microbiome-Standard-MSA-1002-and-MSA-1003",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2019-01-26T03:21:22.0000000Z",
+        "DateInstrumentCompleted": "2019-01-26T19:27:45.0000000Z"
+      },
+      {
+        "Id": "138948811",
+        "Href": "v1pre3/runs/138948811",
+        "Number": 0,
+        "ExperimentName": "NextSeq_v2.5_4.0SW_MethylSeqBS",
+        "Status": "Complete",
+        "FlowcellBarcode": "HHYC5BGX7",
+        "DateCreated": "2018-11-08T22:13:44.0000000Z",
+        "DateModified": "2019-04-18T05:21:31.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 36274583865,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 8861853,
+          "Name": "NB551388"
+        },
+        "InstrumentName": "NB551388",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/138948811/NextSeq_v25_40SW_MethylSeqBS",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-11-08T22:13:44.0000000Z",
+        "DateInstrumentCompleted": "2018-11-08T23:33:03.0000000Z"
+      },
+      {
+        "Id": "138216078",
+        "Href": "v1pre3/runs/138216078",
+        "Number": 0,
+        "ExperimentName": "iSeq: Nextera DNA Flex with Nextera UD Indexes Set A (96 indexes, NA12878)",
+        "Status": "Complete",
+        "FlowcellBarcode": "BNT40305-3025",
+        "DateCreated": "2018-11-05T20:00:55.0000000Z",
+        "DateModified": "2019-06-09T16:56:41.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 782395887,
+        "PlatformName": "iSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 9337328,
+          "Name": "FS10000106"
+        },
+        "InstrumentName": "FS10000106",
+        "InstrumentType": "iSeq100",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/138216078/iSeq-Nextera-DNA-Flex-with-Nextera-UD-Indexes-Set-A-96-indexes-NA12878",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-11-05T20:00:55.0000000Z",
+        "DateInstrumentCompleted": "2018-11-05T20:02:44.0000000Z"
+      },
+      {
+        "Id": "119661542",
+        "Href": "v1pre3/runs/119661542",
+        "Number": 27,
+        "ExperimentName": "TiVAL03CP",
+        "Status": "Complete",
+        "ReagentBarcode": "NS3210730-REAGT",
+        "FlowcellBarcode": "HWN7YBGX7",
+        "DateCreated": "2018-09-04T19:23:23.0000000Z",
+        "DateModified": "2018-09-24T20:25:35.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 94275946930,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 9442433,
+          "Name": "NDX550144_RUO"
+        },
+        "InstrumentName": "NDX550144_RUO",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 149,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/119661542/TiVAL03CP",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-09-06T22:12:34.0000000Z",
+        "DateInstrumentCompleted": "2018-09-08T05:49:29.0000000Z"
+      },
+      {
+        "Id": "118156039",
+        "Href": "v1pre3/runs/118156039",
+        "Number": 293,
+        "ExperimentName": "08272018_LTN_PT_W3_DEV08_CCR_DNA_Spec_setting_standard",
+        "Status": "Complete",
+        "ReagentBarcode": "NS3199209-REAGT",
+        "FlowcellBarcode": "H3LLCBGX9",
+        "DateCreated": "2018-08-30T15:43:05.0000000Z",
+        "DateModified": "2018-12-10T19:21:31.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 71132174501,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 5068063,
+          "Name": "NB551041"
+        },
+        "InstrumentName": "NB551041",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 151,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/118156039/08272018_LTN_PT_W3_DEV08_CCR_DNA_Spec_setting_standard",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-09-06T22:43:42.0000000Z",
+        "DateInstrumentCompleted": "2018-09-08T06:46:07.0000000Z"
+      },
+      {
+        "Id": "107628524",
+        "Href": "v1pre3/runs/107628524",
+        "Number": 113,
+        "ExperimentName": "Myeloid_DNA_Public_Data_NextSeq",
+        "Status": "Complete",
+        "ReagentBarcode": "NS3036083-REAGT",
+        "FlowcellBarcode": "H3MFJBGX7",
+        "DateCreated": "2018-07-27T14:58:30.0000000Z",
+        "DateModified": "2018-11-06T19:04:55.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 75714492966,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 3849846,
+          "Name": "NB551001"
+        },
+        "InstrumentName": "NB551001",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 151,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-07-27T20:35:13.0000000Z",
+        "DateInstrumentCompleted": "2018-07-29T04:54:58.0000000Z"
+      },
+      {
+        "Id": "89303215",
+        "Href": "v1pre3/runs/89303215",
+        "Number": 53,
+        "ExperimentName": "iSeq - AmpliSeq Cancer Hotspot v2 Panel",
+        "Status": "Complete",
+        "ReagentBarcode": "FY0001661-FC4",
+        "FlowcellBarcode": "BNT40311-1810",
+        "DateCreated": "2018-05-22T23:47:16.0000000Z",
+        "DateModified": "2019-06-17T09:57:07.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 849059303,
+        "PlatformName": "iSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 9502493,
+          "Name": "FFSMP027"
+        },
+        "InstrumentName": "FFSMP027",
+        "InstrumentType": "iSeq100",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/89303215/iSeq-AmpliSeq-Cancer-Hotspot-v2-Panel",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-05-22T23:47:16.0000000Z",
+        "DateInstrumentCompleted": "2018-05-23T17:50:06.0000000Z"
+      },
+      {
+        "Id": "37186156",
+        "Href": "v1pre3/runs/37186156",
+        "Number": 206,
+        "ExperimentName": "KBM_DEV17_ImmuneResponse",
+        "Status": "Complete",
+        "ReagentBarcode": "NS2813185-REAGT",
+        "FlowcellBarcode": "HNKJ2BGX3",
+        "DateCreated": "2017-10-13T18:01:09.0000000Z",
+        "DateModified": "2018-01-03T18:40:53.0000000Z",
+        "UserOwnedBy": {
+          "Id": "9319322",
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 73946267299,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 2415414,
+          "Name": "NS500564"
+        },
+        "InstrumentName": "NS500564",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 151,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/37186156/KBM_DEV17_ImmuneResponse",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2017-10-13T21:31:43.0000000Z",
+        "DateInstrumentCompleted": "2017-10-15T05:45:50.0000000Z"
+      },
+      {
+        "Id": "20684712",
+        "Href": "v1pre3/runs/20684712",
+        "Number": 6,
+        "ExperimentName": "XT Workshop ",
+        "Status": "Complete",
+        "ReagentBarcode": "MS4484400-600V3",
+        "FlowcellBarcode": "000000000-ALWMG",
+        "DateCreated": "2016-10-05T22:16:42.0000000Z",
+        "DateModified": "2020-09-30T15:56:19.0000000Z",
+        "UserOwnedBy": {
+          "Id": "7983979",
+          "Name": "Pee Wees Playhouse"
+        },
+        "TotalSize": 6019975980,
+        "PlatformName": "MiSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 5642637,
+          "Name": "M02525R"
+        },
+        "InstrumentName": "M02525R",
+        "InstrumentType": "MiSeq",
+        "NumCyclesRead1": 0,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/20684712/XT-Workshop",
+
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2016-10-05T22:16:42.0000000Z",
+        "DateInstrumentCompleted": "2016-10-06T18:43:03.0000000Z"
+      }
+    ],
+    "DisplayedCount": 10,
+    "TotalCount": 27,
+    "Offset": 0,
+    "Limit": 10,
+    "SortDir": "Desc",
+    "SortBy": "DateCreated"
+  }
+}

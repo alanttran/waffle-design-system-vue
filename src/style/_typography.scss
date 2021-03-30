@@ -38,3 +38,11 @@ p {
 a {
   color: $w-primary-main;
 }
+
+dl dd{
+  margin-left: 0;
+}
+dl dt{
+  font-size: $w-medium-label;
+  color: $w-dark-2;
+}

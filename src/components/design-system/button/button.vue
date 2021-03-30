@@ -2,6 +2,7 @@
   <button 
     :type="isSubmit ? 'submit' : 'button'" 
     :class="className" 
+    :disabled="isDisabled"
     @click="onClick">
     <!-- @slot default inner button content -->
     {{ text }}
@@ -15,8 +16,8 @@ export default {
   props:{
     className: {type: String, default: 'w-button-primary'},
     text: {type: String, default: 'button'},
-    disabled: {type: Boolean, default: false},
-    isSubmit: {type: Boolean, default: false}
+    isSubmit: {type: Boolean, default: false},
+    isDisabled: {type: Boolean, default: false}
   },
   methods: {
     onClick() {

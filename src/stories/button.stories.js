@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
 import { withDesign } from 'storybook-addon-designs'
 
 import Button from '../components/design-system/button/button.vue'
+
 
 export default {
   title: 'DesignSystem/Button',

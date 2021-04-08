@@ -6,5 +6,14 @@ module.exports = {
     'storybook-addon-designs',
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html'
-  ]
+  ],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
 }

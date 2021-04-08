@@ -4,12 +4,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Badge",
-  props: {
-    type: { type: String, default: "primary" },
-    text:{type: String, default: "badge"}
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+@Component
+export default class Badge extends Vue {
+  @Prop({default: "primary"}) readonly type!: string
+  @Prop({default: "badge"}) readonly text!: string
+}
 </script>

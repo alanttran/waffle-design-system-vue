@@ -10,19 +10,18 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: 'Button',
-  props:{
-    className: {type: String, default: 'w-button-primary'},
-    text: {type: String, default: 'button'},
-    isSubmit: {type: Boolean, default: false},
-    isDisabled: {type: Boolean, default: false}
-  },
-  methods: {
-    onClick() {
-      this.$emit('click')
-    }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+@Component
+export default class Button extends Vue {
+
+  @Prop({default: 'w-button-primary'}) readonly className!: string
+  @Prop({default: 'button'}) readonly text!: string
+  @Prop({default: false}) readonly isSubmit!: Boolean
+  @Prop({default: false}) readonly isDisabled!: Boolean
+
+  public onClick(): void{
+    this.$emit('click')
   }
 }
 </script>

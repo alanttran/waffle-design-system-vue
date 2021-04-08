@@ -36,23 +36,25 @@
   </Card>
 </template>
 
-<script>
-import Card from "../design-system/card/card";
-import Badge from "../design-system/badge/badge";
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import Card from "../design-system/card/card.vue";
+import Badge from "../design-system/badge/badge.vue";
 
-export default {
-  name: "SeqCard",
-  components: { Card, Badge },
-  props: {
-    title: { type: String, default: "SeqCardTitle" },
-    id: { type: String, default: "SeqCard ID" },
-    status: { type: String, default: "SeqCard Status" },
-    user: { type: String, default: "SeqCard User" },
-    workflow: { type: String, default: "SeqCard Workflow" },
-    instrumentName: { type: String, default: "SeqCard instrumentName" },
-    instrumentType: { type: String, default: "SeqCard instrumentType" },
-    flowcellBarcode: { type: String, default: "None" },
-  },
+@Component({
+    components: {Card, Badge}
+})
+export default class SeqCard extends Vue {    
+
+  @Prop({default: 'SeqCardTitle'}) readonly title!: string
+  @Prop({default: 'SeqCard ID'}) readonly id!: string
+  @Prop({default: 'SeqCard Status'}) readonly status!: string
+  @Prop({default: 'SeqCard Status'}) readonly user!: string
+  @Prop({default: 'SeqCard Workflow'}) readonly workflow!: string
+  @Prop({default: 'SeqCard instrumentName'}) readonly instrumentName!: string
+  @Prop({default: 'SeqCard instrumentType'}) readonly instrumentType!: string
+  @Prop({default: 'None'}) readonly flowcellBarcode!: string
+  
 };
 </script>
 

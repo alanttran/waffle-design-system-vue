@@ -38,8 +38,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import Card from "../design-system/card/card.vue";
-import Badge from "../design-system/badge/badge.vue";
+import Card from "../design-system/card/card.vue"
+import Badge from "../design-system/badge/badge.vue"
 
 @Component({
     components: {Card, Badge}
@@ -55,7 +55,7 @@ export default class SeqCard extends Vue {
   @Prop({default: 'SeqCard instrumentType'}) readonly instrumentType!: string
   @Prop({default: 'None'}) readonly flowcellBarcode!: string
   
-};
+}
 </script>
 
 <style scoped>

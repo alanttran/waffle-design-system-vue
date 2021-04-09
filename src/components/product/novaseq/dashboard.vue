@@ -52,7 +52,7 @@ import SeqCard from "../../platform/seq-card.vue";
 import Badge from "../../design-system/badge/badge.vue";
 import illuminaData from "../../../assets/illumina-runs-api.json";
 
-const experimentList: [] = illuminaData.Response.Items;
+const experimentList:Array<Object> = illuminaData.Response.Items;
 
 interface Expirement {
   Id: string,
@@ -86,24 +86,24 @@ interface Expirement {
   components: { SeqCard, Badge },
 })
 export default class NovaseqDashboard extends Vue {
-  private experiments: [] = experimentList;
+  private experiments = experimentList;
 
   public sort(order: string): void {
     switch (order) {
-      case "a-z":
-        this.experiments = this.experiments.sort((a:Expirement, b:Expirement) =>
-          a.ExperimentName.toUpperCase() > b.ExperimentName.toUpperCase()
-            ? 1
-            : -1
-        );
-        break;
-      case "z-a":
-        this.experiments = this.experiments.sort((a:Expirement, b:Expirement) =>
-          a.ExperimentName.toUpperCase() > b.ExperimentName.toUpperCase()
-            ? -1
-            : 1
-        );
-        break;
+      // case "a-z":
+      //   this.experiments = this.experiments.sort((a:Expirement, b:Expirement) =>
+      //     a.ExperimentName.toUpperCase() > b.ExperimentName.toUpperCase()
+      //       ? 1
+      //       : -1
+      //   );
+      //   break;
+      // case "z-a":
+      //   this.experiments = this.experiments.sort((a:Expirement, b:Expirement) =>
+      //     a.ExperimentName.toUpperCase() > b.ExperimentName.toUpperCase()
+      //       ? -1
+      //       : 1
+      //   );
+      //   break;
       case "dateCreated":
         this.experiments = illuminaData.Response.Items;
         console.log(experimentList);

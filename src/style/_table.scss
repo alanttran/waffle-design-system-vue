@@ -1,0 +1,27 @@
+// main: style.scss
+
+// colors grabbed from png
+
+table{
+  background: white;
+  border-collapse: collapse;
+}
+td,th{
+  
+  padding: 24px;
+  &:nth-child(2){
+    padding-left: 0;
+  }
+}
+th{
+  color: #C5C3C6;
+  font-weight: 500;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+td{
+  font-size: 14px;
+  border-bottom: 1px solid $w-light-1;
+  
+}

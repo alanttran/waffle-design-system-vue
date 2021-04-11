@@ -2,20 +2,20 @@
 
 // colors grabbed from png
 
-table{
+table {
   background: white;
   border-collapse: collapse;
   position: relative;
 }
-td,th{
-  
+td,
+th {
   padding: 24px;
-  &:nth-child(2){
+  &:nth-child(2) {
     padding-left: 0;
   }
 }
-th{
-  color: #6E696E;
+th {
+  color: #6e696e;
   font-weight: 500;
   text-align: left;
   text-transform: uppercase;
@@ -23,27 +23,26 @@ th{
   position: sticky;
   top: 0;
   background: white;
-  &:after{
-    content:'';
-  position:absolute;
-  left: 0;
-  bottom: 0;
-  width:100%;
-  border-bottom: 1px solid $w-light-1;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid $w-light-1;
   }
 }
-td{
+td {
   font-size: 14px;
   border-bottom: 1px solid $w-light-1;
-  
 }
 
-.placeholder-table{
-  th{
+.placeholder-table {
+  th {
     height: 10px;
     width: 200px;
   }
-  td{
+  td {
     height: 30px;
   }
 }

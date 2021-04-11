@@ -1,7 +1,24 @@
 <template>
-  <div>
-    <h1>Runs</h1>
-    <div style="overflow: auto; max-width: calc(100vw - 4rem); white-space: nowrap">
+  <div style="background: white; max-width: 100%; padding: 2rem; box-sizing: border-box;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+      <h1 style="margin: 0">Runs</h1>
+      <div @click="toggleSortControl()" :class = "{isActive: activeSort}" class="runs-sort-control ">
+        <div class="runs-sort-control-container">
+          <div style="display: flex; align-items: flex-end; ">
+            <div style="font-size: 14px; color: #6e696e; ">Sort by</div>
+            <div style="font-size: 14px; font-weight: 600; margin-left: .5rem;">CREATED</div>
+            <div style="font-size: 12px; color: #6e696e;  margin-left: .3rem;align-self: flex-start">&or;</div>
+          </div>
+          <div style="font-size: 14px; text-align: right;">
+            <div style="padding: 5px 0">Created &#10004;</div>
+            <div style="padding: 5px 0">Status</div>
+            <div style="padding: 5px 0">Title</div>
+            <div style="padding: 5px 0">Instrument</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="overflow: auto; max-width: calc(100vw - 8rem); white-space: nowrap">
       <table v-if="experimentsList.length > 0">
         <thead>
           <tr >
@@ -90,6 +107,7 @@ const defaultExperiment:Experiment = {
 @Component
 export default class MyExperiments extends Vue{
   private experimentsList: Array<Experiment> = [];
+  private activeSort = false;
 
   mounted(){
     axios.get('https://run.mocky.io/v3/8c3c1b98-5111-4c6f-8622-3e604a2e91f8')
@@ -107,6 +125,10 @@ export default class MyExperiments extends Vue{
       // console logs error
       console.log(e)
     })
+  }
+
+  public toggleSortControl():void{
+    this.activeSort = !this.activeSort;
   }
 
   //

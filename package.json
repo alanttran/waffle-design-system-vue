@@ -16,6 +16,7 @@
   "dependencies": {
     "@storybook/preset-scss": "^1.0.3",
     "@whitespace/storybook-addon-html": "^5.0.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "css-loader": "^5.1.1",
     "sass": "^1.32.8",
@@ -63,12 +64,17 @@
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     },
-    "rules": {}
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error"]
+    }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not dead",
+    "Firefox ESR",
+    "not ie 11"
   ],
   "homepage": "https://github.com/alanttran/waffle-design-system-vue"
 }

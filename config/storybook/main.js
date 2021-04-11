@@ -9,7 +9,8 @@ module.exports = {
   ],
   typescript: {
     check: false,
-    checkOptions: {},
+    checkOptions: {    
+    },
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,

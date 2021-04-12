@@ -1,4 +1,5 @@
 export interface Experiment {
+  readonly [index: string]: string | number | Object;
   Id: string;
   Href: string;
   Number: number;
@@ -27,3 +28,13 @@ export interface Experiment {
   DateInstrumentStarted: string;
   DateInstrumentCompleted: string;
 }
+
+export type UserOwnedBy = {
+  Id: string;
+  Name: string;
+};
+
+export type Instrument = {
+  InstrumentId: number;
+  Name: string;
+};

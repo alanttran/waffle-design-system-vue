@@ -35,12 +35,22 @@ td {
   border-bottom: 1px solid $w-light-1;
 }
 
+@keyframes pulse-animation {
+  0%, 100% {
+    background: #ebebf0;
+  }
+  50% {
+    background: #c5bec5;
+  }
+}
 .placeholder-table {
   th {
-    height: 10px;
     width: 200px;
   }
-  td {
-    height: 30px;
+  .placeholder-table-content{
+    background: #ebebf0; 
+    height: 12px; 
+    width: 80px;
+    animation: pulse-animation 3s infinite;
   }
 }

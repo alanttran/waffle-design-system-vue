@@ -285,6 +285,499 @@
         "LaneAndQcStatus": "LaneQcFailed",
         "DateInstrumentStarted": "2016-10-05T22:16:42.0000000Z",
         "DateInstrumentCompleted": "2016-10-06T18:43:03.0000000Z"
+      },
+      {
+        "Id": "3E883A08",
+        "Href": "v1pre3/runs/128969894",
+        "Number": 956,
+        "ExperimentName": "Newkirk Placez_Graham_Arkansas",
+        "Status": "Complete",
+        "ReagentBarcode": "758D71A7-F736",
+        "FlowcellBarcode": "9A29FB99",
+        "DateCreated": "2020-08-03T14:55:11+00:00",
+        "DateModified": "2017-03-29T13:11:47+00:00",
+        "UserOwnedBy": {
+          "Id": 122662010,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 4233673188,
+        "PlatformName": "MiniSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 9268392,
+          "Name": 607515990
+        },
+        "InstrumentName": 607515990,
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 5332,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2015-08-17T07:17:10+00:00",
+        "DateInstrumentCompleted": "2016-07-13T18:12:26+00:00"
+      },
+      {
+        "Id": "B59E3986",
+        "Href": "v1pre3/runs/149888574",
+        "Number": 456,
+        "ExperimentName": "Bristol Street_Valentine_Hawaii",
+        "Status": "Timed Out",
+        "ReagentBarcode": "9C47B345-DA13",
+        "FlowcellBarcode": "EDC7F532",
+        "DateCreated": "2019-10-03T01:13:21+00:00",
+        "DateModified": "2020-05-16T08:03:53+00:00",
+        "UserOwnedBy": {
+          "Id": 133336857,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 53445698507,
+        "PlatformName": "MiniSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 4811298,
+          "Name": 607515994
+        },
+        "InstrumentName": 607515997,
+        "InstrumentType": "iSeq",
+        "NumCyclesRead1": 1048,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2020-11-09T00:25:32+00:00",
+        "DateInstrumentCompleted": "2015-10-31T11:41:42+00:00"
+      },
+      {
+        "Id": "EF7C48AA",
+        "Href": "v1pre3/runs/132796222",
+        "Number": 679,
+        "ExperimentName": "Guernsey Street_Sargent_Alaska",
+        "Status": "Timed Out",
+        "ReagentBarcode": "73CFCB9B-0D13",
+        "FlowcellBarcode": "3FA24D43",
+        "DateCreated": "2017-04-11T11:21:13+00:00",
+        "DateModified": "2017-10-08T22:27:03+00:00",
+        "UserOwnedBy": {
+          "Id": 133795997,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 34359258185,
+        "PlatformName": "NovaSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 7691302,
+          "Name": 607515997
+        },
+        "InstrumentName": "60751599A",
+        "InstrumentType": "iSeq",
+        "NumCyclesRead1": 6105,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2014-12-10T22:03:40+00:00",
+        "DateInstrumentCompleted": "2020-07-19T08:28:06+00:00"
+      },
+      {
+        "Id": "CBAF5166",
+        "Href": "v1pre3/runs/142595437",
+        "Number": 522,
+        "ExperimentName": "Kiely Place_Perkins_Kansas",
+        "Status": "Failed",
+        "ReagentBarcode": "E7746EF6-8908",
+        "FlowcellBarcode": "0AC55E51",
+        "DateCreated": "2019-01-18T15:58:03+00:00",
+        "DateModified": "2015-12-14T14:58:38+00:00",
+        "UserOwnedBy": {
+          "Id": 154187227,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 69620496928,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 6310082,
+          "Name": "60751599B"
+        },
+        "InstrumentName": "60751599B",
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 83,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2020-03-25T11:51:43+00:00",
+        "DateInstrumentCompleted": "2015-01-24T19:45:26+00:00"
+      },
+      {
+        "Id": 50433537,
+        "Href": "v1pre3/runs/195571217",
+        "Number": 560,
+        "ExperimentName": "Whitney Avenue_Edwards_New Mexico",
+        "Status": "Failed",
+        "ReagentBarcode": "34F949E4-9D9A",
+        "FlowcellBarcode": "06E76DED",
+        "DateCreated": "2015-11-16T06:58:06+00:00",
+        "DateModified": "2020-08-24T23:28:17+00:00",
+        "UserOwnedBy": {
+          "Id": 116925352,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 9916124638,
+        "PlatformName": "MiniSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 7023378,
+          "Name": "60751599E"
+        },
+        "InstrumentName": 607515995,
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 590,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2014-02-20T06:26:50+00:00",
+        "DateInstrumentCompleted": "2015-08-01T01:52:38+00:00"
+      },
+      {
+        "Id": "ED509405",
+        "Href": "v1pre3/runs/193138680",
+        "Number": 574,
+        "ExperimentName": "Noble Street_Frank_Tennessee",
+        "Status": "Timed Out",
+        "ReagentBarcode": "D9B863D4-F099",
+        "FlowcellBarcode": "D2EC21D2",
+        "DateCreated": "2020-11-27T18:21:30+00:00",
+        "DateModified": "2014-01-28T05:11:06+00:00",
+        "UserOwnedBy": {
+          "Id": 163328864,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 63122496513,
+        "PlatformName": "iSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 9657228,
+          "Name": "60751599A"
+        },
+        "InstrumentName": 607515998,
+        "InstrumentType": "iSeq",
+        "NumCyclesRead1": 5082,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2015-04-20T21:28:59+00:00",
+        "DateInstrumentCompleted": "2015-01-28T23:01:21+00:00"
+      },
+      {
+        "Id": "A168D9E1",
+        "Href": "v1pre3/runs/155200483",
+        "Number": 573,
+        "ExperimentName": "Richmond Street_Barnett_Northern Mariana Islands",
+        "Status": "Timed Out",
+        "ReagentBarcode": "9E013151-08EC",
+        "FlowcellBarcode": "AB7A6AF6",
+        "DateCreated": "2014-09-27T06:14:59+00:00",
+        "DateModified": "2018-09-11T14:41:31+00:00",
+        "UserOwnedBy": {
+          "Id": 199626083,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 39439285125,
+        "PlatformName": "NovaSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 7223029,
+          "Name": 607515990
+        },
+        "InstrumentName": "60751599A",
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 3929,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2019-09-22T13:44:35+00:00",
+        "DateInstrumentCompleted": "2017-12-29T06:38:35+00:00"
+      },
+      {
+        "Id": "A49D07AA",
+        "Href": "v1pre3/runs/120602656",
+        "Number": 200,
+        "ExperimentName": "Manhattan Court_Pennington_Utah",
+        "Status": "Failed",
+        "ReagentBarcode": "FE07442F-37ED",
+        "FlowcellBarcode": "57BBAAF7",
+        "DateCreated": "2016-11-08T03:01:44+00:00",
+        "DateModified": "2017-04-29T10:06:12+00:00",
+        "UserOwnedBy": {
+          "Id": 187629807,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 97172966997,
+        "PlatformName": "MiniSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 3949911,
+          "Name": 607515994
+        },
+        "InstrumentName": "60751599A",
+        "InstrumentType": "iSeq",
+        "NumCyclesRead1": 7473,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2015-02-03T11:03:04+00:00",
+        "DateInstrumentCompleted": "2018-11-14T17:38:08+00:00"
+      },
+      {
+        "Id": "F9BFE3FF",
+        "Href": "v1pre3/runs/178293961",
+        "Number": 411,
+        "ExperimentName": "Virginia Place_Strickland_South Dakota",
+        "Status": "Failed",
+        "ReagentBarcode": "FAD1B99F-B01E",
+        "FlowcellBarcode": "98DD47A8",
+        "DateCreated": "2014-07-26T08:32:45+00:00",
+        "DateModified": "2020-04-24T23:16:59+00:00",
+        "UserOwnedBy": {
+          "Id": 123072201,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 94837205258,
+        "PlatformName": "NovaSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 7220349,
+          "Name": 607515998
+        },
+        "InstrumentName": "60751599B",
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 3350,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2020-06-03T21:42:22+00:00",
+        "DateInstrumentCompleted": "2016-07-08T11:01:10+00:00"
+      },
+      {
+        "Id": "A831A9C1",
+        "Href": "v1pre3/runs/112859026",
+        "Number": 790,
+        "ExperimentName": "Amherst Street_Ayala_Marshall Islands",
+        "Status": "Timed Out",
+        "ReagentBarcode": "508650BD-02E7",
+        "FlowcellBarcode": "33B83F3C",
+        "DateCreated": "2019-01-29T03:53:51+00:00",
+        "DateModified": "2016-11-07T00:28:29+00:00",
+        "UserOwnedBy": {
+          "Id": 148061066,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 98484326347,
+        "PlatformName": "MiniSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 7536831,
+          "Name": "60751599B"
+        },
+        "InstrumentName": 607515992,
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 8257,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2014-06-19T20:19:40+00:00",
+        "DateInstrumentCompleted": "2016-12-05T05:22:20+00:00"
+      },
+      {
+        "Id": "1F4A55EB",
+        "Href": "v1pre3/runs/164615883",
+        "Number": 993,
+        "ExperimentName": "Fuller Place_Whitley_North Dakota",
+        "Status": "Failed",
+        "ReagentBarcode": "50CCA194-8E33",
+        "FlowcellBarcode": "2E96C142",
+        "DateCreated": "2015-03-27T16:03:30+00:00",
+        "DateModified": "2019-12-07T00:40:45+00:00",
+        "UserOwnedBy": {
+          "Id": 134642344,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 87076226626,
+        "PlatformName": "NextSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 8563128,
+          "Name": 607515992
+        },
+        "InstrumentName": "60751599A",
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 6536,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2019-04-30T09:03:00+00:00",
+        "DateInstrumentCompleted": "2017-03-17T19:08:21+00:00"
+      },
+      {
+        "Id": "922F0F9F",
+        "Href": "v1pre3/runs/183572797",
+        "Number": 649,
+        "ExperimentName": "Hillel Place_Hewitt_Virgin Islands",
+        "Status": "Complete",
+        "ReagentBarcode": "40CF5426-4026",
+        "FlowcellBarcode": "87DB7A63",
+        "DateCreated": "2018-03-27T23:13:48+00:00",
+        "DateModified": "2020-04-29T10:10:01+00:00",
+        "UserOwnedBy": {
+          "Id": 101896194,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 6284845424,
+        "PlatformName": "NovaSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 5381549,
+          "Name": "60751599C"
+        },
+        "InstrumentName": "60751599B",
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 1185,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2015-03-27T10:43:17+00:00",
+        "DateInstrumentCompleted": "2019-04-13T22:07:33+00:00"
+      },
+      {
+        "Id": "D92EB5D3",
+        "Href": "v1pre3/runs/104146310",
+        "Number": 262,
+        "ExperimentName": "Conover Street_Shaffer_Colorado",
+        "Status": "Complete",
+        "ReagentBarcode": "10FC7728-C213",
+        "FlowcellBarcode": "01BB08EA",
+        "DateCreated": "2014-07-10T09:51:30+00:00",
+        "DateModified": "2017-09-28T12:17:01+00:00",
+        "UserOwnedBy": {
+          "Id": 161498997,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 13436662612,
+        "PlatformName": "iSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 7452004,
+          "Name": "60751599A"
+        },
+        "InstrumentName": 607515998,
+        "InstrumentType": "NovaSeq",
+        "NumCyclesRead1": 5072,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2015-03-08T12:04:56+00:00",
+        "DateInstrumentCompleted": "2019-09-05T20:42:02+00:00"
+      },
+      {
+        "Id": "64A34DBD",
+        "Href": "v1pre3/runs/193257506",
+        "Number": 475,
+        "ExperimentName": "Doscher Street_Hamilton_Maine",
+        "Status": "Timed Out",
+        "ReagentBarcode": "458F2FF0-EEE1",
+        "FlowcellBarcode": "DF6A9F0C",
+        "DateCreated": "2020-03-02T11:45:48+00:00",
+        "DateModified": "2018-12-13T20:55:28+00:00",
+        "UserOwnedBy": {
+          "Id": 192213264,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 8937406079,
+        "PlatformName": "MiniSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 4650805,
+          "Name": 607515996
+        },
+        "InstrumentName": 607515992,
+        "InstrumentType": "MiniSeq",
+        "NumCyclesRead1": 5750,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2018-03-20T11:50:00+00:00",
+        "DateInstrumentCompleted": "2014-10-05T12:32:45+00:00"
+      },
+      {
+        "Id": "0F315AA9",
+        "Href": "v1pre3/runs/153834994",
+        "Number": 251,
+        "ExperimentName": "Driggs Avenue_Wiggins_Ohio",
+        "Status": "Failed",
+        "ReagentBarcode": "AD85A053-C3FE",
+        "FlowcellBarcode": "6899F5E6",
+        "DateCreated": "2016-05-06T00:46:12+00:00",
+        "DateModified": "2015-11-14T08:45:31+00:00",
+        "UserOwnedBy": {
+          "Id": 108432768,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 26789730223,
+        "PlatformName": "NovaSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 5924454,
+          "Name": 607515990
+        },
+        "InstrumentName": 607515995,
+        "InstrumentType": "MiniSeq",
+        "NumCyclesRead1": 1593,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2018-02-08T00:04:50+00:00",
+        "DateInstrumentCompleted": "2015-07-12T06:36:02+00:00"
+      },
+      {
+        "Id": "FDDC0B4B",
+        "Href": "v1pre3/runs/181383338",
+        "Number": 229,
+        "ExperimentName": "Montague Street_Cline_Kentucky",
+        "Status": "Failed",
+        "ReagentBarcode": "34682CDD-A8D4",
+        "FlowcellBarcode": "1E4325B5",
+        "DateCreated": "2015-12-20T11:28:14+00:00",
+        "DateModified": "2018-07-06T02:45:04+00:00",
+        "UserOwnedBy": {
+          "Id": 139918505,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 41945894230,
+        "PlatformName": "iSeq",
+        "Workflow": "Generate FASTQ",
+        "Instrument": {
+          "InstrumentId": 9934289,
+          "Name": 607515997
+        },
+        "InstrumentName": 607515999,
+        "InstrumentType": "NextSeq",
+        "NumCyclesRead1": 4,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "QcPassed",
+        "DateInstrumentStarted": "2019-05-20T16:04:58+00:00",
+        "DateInstrumentCompleted": "2019-01-28T20:18:37+00:00"
+      },
+      {
+        "Id": "1EBB1CEB",
+        "Href": "v1pre3/runs/128992043",
+        "Number": 402,
+        "ExperimentName": "Macdougal Street_Landry_South Carolina",
+        "Status": "Failed",
+        "ReagentBarcode": "6AC83D35-142D",
+        "FlowcellBarcode": "B1639F73",
+        "DateCreated": "2020-07-23T23:00:34+00:00",
+        "DateModified": "2014-05-10T01:20:03+00:00",
+        "UserOwnedBy": {
+          "Id": 196836780,
+          "Name": "Illumina Public Data"
+        },
+        "TotalSize": 15012940188,
+        "PlatformName": "NovaSeq",
+        "Workflow": "HiSeqFastQ",
+        "Instrument": {
+          "InstrumentId": 5084662,
+          "Name": 607515998
+        },
+        "InstrumentName": 607515995,
+        "InstrumentType": "iSeq",
+        "NumCyclesRead1": 1843,
+        "HrefBaseSpaceUI": "https://basespace.illumina.com/run/107628524/Myeloid_DNA_Public_Data_NextSeq",
+        "LaneAndQcStatus": "LaneQcFailed",
+        "DateInstrumentStarted": "2019-09-08T22:18:25+00:00",
+        "DateInstrumentCompleted": "2015-07-15T00:02:23+00:00"
       }
     ],
     "DisplayedCount": 10,

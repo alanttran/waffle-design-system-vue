@@ -6,7 +6,8 @@
   color: transparent;
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
+    background: #444fe8;
+    background-clip: text;
   }
 }
 

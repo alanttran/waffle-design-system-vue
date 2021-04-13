@@ -2,11 +2,7 @@
   <div class="runs-card">
     <div class="runs-card-header">
       <h1>Runs</h1>
-      <div
-        v-if="experimentsList.length > 0"
-        :class="{ isActive: activeSort }"
-        class="runs-sort-control"
-      >
+      <div :class="{ isActive: activeSort }" class="runs-sort-control">
         <div class="runs-sort-control-container">
           <div class="runs-sort-control-menu">
             <div class="runs-sort-control-menu-text">Sort by</div>
@@ -21,12 +17,12 @@
               class="runs-sort-control-icon-container"
             >
               <i
-                v-if="!activeSort && currentSortOrder === 'desc'"
+                v-if="!activeSort && currentSortDir === 'desc'"
                 title="Descending"
                 class="ri-arrow-down-s-line"
               ></i>
               <i
-                v-if="!activeSort && currentSortOrder === 'asc'"
+                v-if="!activeSort && currentSortDir === 'asc'"
                 title="Ascending"
                 class="ri-arrow-up-s-line"
               ></i>
@@ -67,8 +63,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(experiment, name) in experimentsList" :key="name.id">
-            <td style="border-bottom: none">&#x25a2;</td>
+          <tr :key="name.id" v-for="(experiment, name) in paginatedView">
+            <td>&#x25a2;</td>
             <td
               v-html="tableCellFormatter(value, name)"
               v-for="(value, name) in experiment"
@@ -93,6 +89,20 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <p>Current Page: {{ currentPage }}</p>
+        </li>
+        <li>
+          <p>Total: {{ totalExperiments }}</p>
+        </li>
+      </ul>
+      <p>
+        <button @click="prevPage">Previous</button>
+        <button @click="nextPage">Next</button>
+      </p>
     </div>
   </div>
 </template>
@@ -139,6 +149,8 @@ const defaultExperiment: Experiment = {
 
 type sortItem = { name: string; category: string };
 
+let experimentListAxios: Array<Experiment> = [];
+
 @Component
 export default class MyExperiments extends Vue {
   private experimentsList: Array<Experiment> = [];
@@ -151,11 +163,14 @@ export default class MyExperiments extends Vue {
     { name: "Size", category: "TotalSize" },
   ];
   private currentSortChoice = this.sortList[0];
-  private currentSortOrder = "desc";
+  private currentSortDir = "desc";
+  private pageSize = 10;
+  private currentPage = 1;
+  private totalExperiments = 0;
 
   mounted() {
     axios
-      .get("https://run.mocky.io/v3/8c3c1b98-5111-4c6f-8622-3e604a2e91f8")
+      .get("https://run.mocky.io/v3/e6650d4a-69a3-4fb2-bad8-43bea7546248")
       .then((response) => {
         // JSON responses are automatically parsed.
         //this.experiments = response.data.Response.Items;
@@ -165,9 +180,12 @@ export default class MyExperiments extends Vue {
             ...experiment,
           };
           //console.log(formattedExperiment);
-          this.experimentsList.push(formattedExperiment);
+          experimentListAxios.push(formattedExperiment);
         }
-        //console.log(this.experimentsList);
+        //console.log("experimentAxios" + experimentListAxios);
+        this.experimentsList = experimentListAxios;
+        this.pageSize = response.data.Response.DisplayedCount;
+        this.totalExperiments = response.data.Response.TotalCount;
       })
       .catch((e) => {
         // console logs error
@@ -175,47 +193,74 @@ export default class MyExperiments extends Vue {
       });
   }
 
+  get paginatedView() {
+    return this.experimentsList
+      .sort((a, b) => {
+        let modifier = 1;
+        if (this.currentSortDir === "desc") modifier = -1;
+        a[this.currentSortChoice.category].toString().toUpperCase() >
+        b[this.currentSortChoice.category].toString().toUpperCase()
+          ? -1 * modifier
+          : 1 * modifier;
+        return 0;
+      })
+      .filter((row, index) => {
+        let start = (this.currentPage - 1) * this.pageSize;
+        let end = this.currentPage * this.pageSize;
+        if (index >= start && index < end) return true;
+      });
+  }
+
+  public nextPage() {
+    if (this.currentPage * this.pageSize < this.experimentsList.length)
+      this.currentPage++;
+  }
+  public prevPage() {
+    if (this.currentPage > 1) this.currentPage--;
+  }
+
   public updateSortChoice(sortChoice: sortItem): void {
     this.currentSortChoice = sortChoice;
     let type = typeof defaultExperiment[this.currentSortChoice.category];
     console.log(type);
-    if(type === 'string' || type === 'number'){
+    if (type === "string" || type === "number") {
       this.sortExperiments(type);
     }
   }
 
   public toggleSortOrder() {
-    this.currentSortOrder = this.currentSortOrder === "asc" ? "desc" : "asc";
+    this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
     let type = typeof defaultExperiment[this.currentSortChoice.category];
-    if(type === 'string' || type === 'number'){
+    if (type === "string" || type === "number") {
       this.sortExperiments(type);
     }
   }
 
-  public sortExperiments(type: 'string' | 'number' = 'string'): void {
-    console.log('sortExperiments' + type);
-    if (this.currentSortOrder === "asc" && type === 'number'){
-      console.log('number worked! sort!')
+  public sortExperiments(type: "string" | "number" = "string"): void {
+    console.log("sortExperiments" + type);
+    if (this.currentSortDir === "asc" && type === "number") {
+      console.log("number worked! sort!");
       console.log(this.experimentsList[0][this.currentSortChoice.category]);
       this.experimentsList = this.experimentsList.sort((a, b) =>
         a[this.currentSortChoice.category] > b[this.currentSortChoice.category]
-        ? 1 : -1
+          ? 1
+          : -1
       );
-    }
-    else if (this.currentSortOrder === "desc" && type === 'number'){
-      console.log('number worked! sort!')
+    } else if (this.currentSortDir === "desc" && type === "number") {
+      console.log("number worked! sort!");
       this.experimentsList = this.experimentsList.sort((a, b) =>
         a[this.currentSortChoice.category] > b[this.currentSortChoice.category]
-        ? -1 : 1
+          ? -1
+          : 1
       );
-    } else if (this.currentSortOrder === "asc") {
+    } else if (this.currentSortDir === "asc") {
       this.experimentsList = this.experimentsList.sort((a, b) =>
         a[this.currentSortChoice.category].toString().toUpperCase() >
         b[this.currentSortChoice.category].toString().toUpperCase()
           ? 1
           : -1
       );
-    } else if (this.currentSortOrder === "desc") {
+    } else if (this.currentSortDir === "desc") {
       this.experimentsList = this.experimentsList.sort((a, b) =>
         a[this.currentSortChoice.category].toString().toUpperCase() >
         b[this.currentSortChoice.category].toString().toUpperCase()
@@ -278,9 +323,10 @@ export default class MyExperiments extends Vue {
     value: number | string | UserOwnedBy | Instrument,
     key: string
   ) {
+    console.log("Tablecell Formatter counter!");
     if (key.includes("Date")) {
       // Conditional that formats the date and returns a string
-
+      //console.log("Date: " + value);
       let date = new Date(value.toString());
       return date.toLocaleDateString();
     } else if (key === "ExperimentName") {

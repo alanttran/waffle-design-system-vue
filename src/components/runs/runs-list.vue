@@ -111,7 +111,7 @@
           <p>Total: {{ totalExperiments }}</p>
         </li>
         <li>
-          <p>pageEnd: {{ pageEnd }}</p>
+          <p>current Sort: {{ currentSortDir }}</p>
         </li>
       </ul> -->
       <p>
@@ -143,7 +143,7 @@ import Button from "../design-system/button/button.vue";
 
 // Default values to each experiment to be merged later
 // This is created to make sure that each property has a default value
-// Even if the .json object has it missing
+// Even if the .json object has the entire key:value missing
 // Known missing keys: ReagentBarcode, FlowcellBarcode
 //
 const blankExperiment: Experiment = {
@@ -176,10 +176,8 @@ const blankExperiment: Experiment = {
   DateInstrumentCompleted: "",
 };
 
-// sort item type sorts functions later
+// Sort item type sorts functions later
 type sortItem = { name: string; category: string };
-
-let modifier: 1 | -1 = 1;
 
 @Component({
   components: { Button },
@@ -196,7 +194,6 @@ export default class RunsList extends Vue {
     { name: "Created", category: "DateCreated" },
     { name: "Experiment", category: "ExperimentName" },
     { name: "ID", category: "Id" },
-    { name: "Instrument", category: "InstrumentName" },
     { name: "Number", category: "Number" },
     { name: "Size", category: "TotalSize" },
     { name: "Status", category: "Status" },
@@ -209,9 +206,9 @@ export default class RunsList extends Vue {
     axios
       .get("https://run.mocky.io/v3/e6650d4a-69a3-4fb2-bad8-43bea7546248")
       .then((response) => {
-        // get mocky JSON object from API
-        // merge mocky JSON object properties with our empty blankExperiment
-        // push empty array experimentListAxios with 'items'
+        // Get mocky JSON object from API
+        // Merge mocky JSON object properties with our empty blankExperiment
+        // Push empty array experimentListAxios with 'items'
         let experimentListAxios: Array<Experiment> = [];
         for (let experiment of response.data.Response.Items) {
           let formattedExperiment: Experiment = {
@@ -222,6 +219,7 @@ export default class RunsList extends Vue {
         }
 
         // store values in variables after experimentListAxios is made
+  
         this.experimentsList = experimentListAxios;
         this.pageSize = response.data.Response.DisplayedCount;
         this.totalExperiments = response.data.Response.TotalCount;
@@ -240,6 +238,7 @@ export default class RunsList extends Vue {
   //
   // @return {Array<Object>} - experimentList subset based on currentPage and pageSize
   //
+  // Reference source
   // https://www.raymondcamden.com/2018/02/08/building-table-sorting-and-pagination-in-vuejs//
   //
   get paginatedView() {
@@ -268,6 +267,10 @@ export default class RunsList extends Vue {
   // updateSortChoice() updates the current sort
   // Then executes sortExperiments as long as the type matches
   //
+  // There are similar logic here with toggleSortOrder
+  // Alternatively I probably should have the type check in the sortExperiments function
+  // That would have made this function cleaner
+  //
   public updateSortChoice(sortChoice: sortItem): void {
     this.currentSortChoice = sortChoice;
     let type = typeof blankExperiment[this.currentSortChoice.category];
@@ -280,6 +283,10 @@ export default class RunsList extends Vue {
   // toggleSortOrder() updates the current sort direction
   // Then executes sortExperiments as long as the type matches
   //
+  // There are similar logic here with updateSortChoice
+  // Alternatively I probably should have the type check in the sortExperiments function
+  // That would have made this function cleaner
+  //
   public toggleSortOrder() {
     this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
     let type = typeof blankExperiment[this.currentSortChoice.category];
@@ -290,11 +297,13 @@ export default class RunsList extends Vue {
 
   //
   // sortExperiments() takes a type and chooses the appropriate sort for experimentList
-  //
+  // category variable is the Object['key'] itself like Number, ID etc
+  // 
   // @param {String} type - type of the Object[key], string is default
   //
   public sortExperiments(type: "string" | "number" = "string"): void {
     let category = this.currentSortChoice.category;
+    let modifier: 1 | -1 = 1;
     if (this.currentSortDir === "asc") modifier = -1;
     if (type === "number") {
       this.experimentsList.sort((a, b) =>
@@ -422,6 +431,7 @@ export default class RunsList extends Vue {
     // However I did notice that the mockup had Status being the first column
     // In that instance, it is possible to instead bold every <td> henceforth in that row
     // after running a simple if statement. 
+
   }
 }
 </script>

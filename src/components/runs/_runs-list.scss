@@ -1,28 +1,69 @@
 // main: ../../style/style.scss
+
+// Colors are mostly color-picked from the png
+$runs-gradient-blue-1: #4697ea;
+$runs-gradient-blue-2: #444fe8;
+$runs-card-background: white;
+$runs-sort-control-background: $runs-card-background;
+$runs-light-gray: #6e696e;
+$runs-table-border-color: #f0eff0;
+
+// These colors I created
+$table-placeholder-pulse-gray-1: #ebebf0;
+$table-placeholder-pulse-gray-2: #c5bec5;
+
+// Large card
+.runs-card {
+  background: $runs-card-background;
+  max-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.runs-card-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  > h1 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+  }
+}
+
+// Gradient CSS
+// I added a hover effect assuming that it is some kind of link
 .experiment-name-gradient {
-  background: #4697ea;
-  background: linear-gradient(to right, #4697ea, #444fe8);
+  background: $runs-gradient-blue-1;
+  background: linear-gradient(
+    to right,
+    $runs-gradient-blue-1,
+    $runs-gradient-blue-2
+  );
   background-clip: text;
   color: transparent;
   &:hover {
     cursor: pointer;
-    background: #444fe8;
+    background: $runs-gradient-blue-2;
     background-clip: text;
   }
 }
 
+// Sort control
+// I added underline hover for the choice
+// Also added hover on each item by changing boldness
 .runs-sort-control {
   position: relative;
   height: 30px;
   padding-top: 10px;
   width: 200px;
   overflow: hidden;
-  
+
   &.isActive {
     overflow: initial;
 
     .runs-sort-control-container {
-      background: white;
+      background: $runs-sort-control-background;
       box-shadow: 0 20px 20px 8px #e0e0e0;
     }
   }
@@ -42,7 +83,7 @@
   justify-content: flex-end;
 
   .runs-sort-control-menu-text {
-    color: #6e696e;
+    color: $runs-light-gray;
   }
   .runs-sort-control-menu-selected-value {
     font-weight: 600;
@@ -61,12 +102,11 @@
 .runs-sort-control-menu-item {
   display: flex;
   padding: 8px 0;
-  &:hover{
+  &:hover {
     font-weight: 600;
     cursor: pointer;
   }
 }
-
 .runs-sort-control-menu-item-text {
   flex: auto;
 }
@@ -74,42 +114,82 @@
   flex: none;
   width: 20px;
 }
-
 .runs-sort-control-icon-container {
   font-size: 16px;
-  color: #6e696e;
+  color: $runs-light-gray;
   height: 18px;
   width: 20px;
   text-align: right;
   cursor: pointer;
 }
 
-.runs-card {
-  background: white;
-  max-width: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-.runs-card-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 18px;
-  > h1 {
-    margin: 0;
-    font-weight: 400;
-    font-size: 28px;
-  }
-}
-
+// Table container
+// I set a height to prevent the UI from changing when there are too few rows
 .runs-table-container {
   overflow: auto;
   max-width: calc(100vw - 8rem);
   white-space: nowrap;
   height: 735px;
-
 }
 
-button + button{
+// table styles
+table {
+  background: $runs-card-background;
+  border-collapse: collapse;
+  position: relative;
+}
+td,
+th {
+  padding: 0 24px;
+
+  &:first-child {
+    padding-left: 0;
+    border-bottom: none;
+  }
+  &:nth-child(2) {
+    padding-left: 0;
+  }
+}
+th {
+  color: $runs-light-gray;
+  font-weight: 500;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 10px;
+  position: sticky;
+  height: 40px;
+  top: 0;
+  background: $runs-card-background;
+}
+td {
+  height: 67px;
+  font-size: 14px;
+  border-bottom: 1px solid $runs-table-border-color;
+}
+
+// This keyframe animation is for placeholder table animation placeholder
+@keyframes pulse-animation {
+  0%,
+  100% {
+    background: $table-placeholder-pulse-gray-1;
+  }
+  50% {
+    background: $table-placeholder-pulse-gray-2;
+  }
+}
+.placeholder-table {
+  th {
+    width: 200px;
+  }
+  .placeholder-table-content {
+    background: $table-placeholder-pulse-gray-1;
+    height: 12px;
+    width: 80px;
+    animation: pulse-animation 3s infinite;
+  }
+}
+
+// just to space out the two pagination buttons
+button + button {
   margin-left: 8px;
 }

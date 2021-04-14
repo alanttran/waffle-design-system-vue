@@ -1,6 +1,6 @@
 import illuminaData from "../assets/illumina-runs-api.json";
 import NovaSeqDashboard from "../components/product/novaseq/dashboard";
-import MyExperiments from "../components/product/novaseq/my-experiments";
+
 
 export default {
   title: "Products/NovaSeq",
@@ -37,8 +37,3 @@ export const dashboard = () => ({
   },
 });
 
-export const myExperiments = () => ({
-  render() {
-    return <MyExperiments></MyExperiments>;
-  },
-});

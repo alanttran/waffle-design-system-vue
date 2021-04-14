@@ -1,6 +1,6 @@
-// main: ../../../style/style.scss
+// main: ../../style/style.scss
 .experiment-name-gradient {
-  background: #4697ea; /* fallback for old browsers */
+  background: #4697ea;
   background: linear-gradient(to right, #4697ea, #444fe8);
   background-clip: text;
   color: transparent;
@@ -94,8 +94,11 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 18px;
   > h1 {
     margin: 0;
+    font-weight: 400;
+    font-size: 28px;
   }
 }
 
@@ -103,4 +106,10 @@
   overflow: auto;
   max-width: calc(100vw - 8rem);
   white-space: nowrap;
+  height: 735px;
+
+}
+
+button + button{
+  margin-left: 8px;
 }

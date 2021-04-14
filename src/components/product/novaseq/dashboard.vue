@@ -54,8 +54,6 @@ import illuminaData from "../../../assets/illumina-runs-api.json";
 
 const experimentList:Array<Object> = illuminaData.Response.Items;
 
-
-
 @Component({
   components: { SeqCard, Badge },
 })

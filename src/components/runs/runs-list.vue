@@ -2,7 +2,14 @@
   <div class="runs-card">
     <div class="runs-card-header">
       <h1>Runs</h1>
-      <div :class="{ isActive: activeSort }" class="runs-sort-control">
+      <!-- This is the sort menu control - only shows when there is content
+      Ideally it would be a separate component or subcomponent 
+      More time - separate component that throws events instead -->
+      <div
+        v-if="experimentsList.length > 0"
+        :class="{ isActive: activeSortMenu }"
+        class="runs-sort-control"
+      >
         <div class="runs-sort-control-container">
           <div class="runs-sort-control-menu">
             <div class="runs-sort-control-menu-text">Sort by</div>
@@ -17,12 +24,12 @@
               class="runs-sort-control-icon-container"
             >
               <i
-                v-if="!activeSort && currentSortDir === 'desc'"
+                v-if="!activeSortMenu && currentSortDir === 'desc'"
                 title="Descending"
                 class="ri-arrow-down-s-line"
               ></i>
               <i
-                v-if="!activeSort && currentSortDir === 'asc'"
+                v-if="!activeSortMenu && currentSortDir === 'asc'"
                 title="Ascending"
                 class="ri-arrow-up-s-line"
               ></i>
@@ -52,7 +59,9 @@
         </div>
       </div>
     </div>
+    <!-- Sort Menu End -->
     <div class="runs-table-container">
+      <!-- Primary experiment list table when there is content -->
       <table v-if="experimentsList.length > 0">
         <thead>
           <tr>
@@ -73,6 +82,8 @@
           </tr>
         </tbody>
       </table>
+      <!-- Primary table end -->
+      <!-- Placeholder table you should be able to see it briefly - it prevents UI movement once API resolves -->
       <table class="placeholder-table" v-else>
         <thead>
           <tr>
@@ -91,33 +102,51 @@
       </table>
     </div>
     <div>
-      <ul>
+      <!-- This commented area was just to troubleshoot pagination -->
+      <!-- <ul>
         <li>
           <p>Current Page: {{ currentPage }}</p>
         </li>
         <li>
           <p>Total: {{ totalExperiments }}</p>
         </li>
-      </ul>
+        <li>
+          <p>pageEnd: {{ pageEnd }}</p>
+        </li>
+      </ul> -->
       <p>
-        <button @click="prevPage">Previous</button>
-        <button @click="nextPage">Next</button>
+        <!-- Buttons for pagination. If I had more time, I would 
+        have preferred to create individual buttons for each page -->
+        <Button
+          @click="prevPage"
+          :disabled="currentPage === 1"
+          className="w-button-secondary"
+          >Previous</Button
+        >
+        <Button @click="nextPage" :disabled="currentPage === pageEnd"
+          >Next</Button
+        >
       </p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+// import vue-property-decorator is for typescript to work w/ VueJS
+// import ./experiment - used for interfaces and types
+// import axios for json call
+// import Button for pagination buttons
 import { Component, Vue } from "vue-property-decorator";
 import { Experiment, UserOwnedBy, Instrument } from "./experiment";
 import axios from "axios";
+import Button from "../design-system/button/button.vue";
 
 // Default values to each experiment to be merged later
 // This is created to make sure that each property has a default value
 // Even if the .json object has it missing
 // Known missing keys: ReagentBarcode, FlowcellBarcode
 //
-const defaultExperiment: Experiment = {
+const blankExperiment: Experiment = {
   Id: "",
   Href: "",
   Number: 0,
@@ -147,45 +176,57 @@ const defaultExperiment: Experiment = {
   DateInstrumentCompleted: "",
 };
 
+// sort item type sorts functions later
 type sortItem = { name: string; category: string };
 
-let experimentListAxios: Array<Experiment> = [];
+let modifier: 1 | -1 = 1;
 
-@Component
-export default class MyExperiments extends Vue {
+@Component({
+  components: { Button },
+})
+export default class RunsList extends Vue {
   private experimentsList: Array<Experiment> = [];
-  private activeSort = false;
+  private activeSortMenu = false;
+  private currentSortDir = "desc";
+  private pageSize = 10;
+  private currentPage = 1;
+  private totalExperiments = 0;
+  private pageEnd = 0;
   private sortList: Array<sortItem> = [
     { name: "Created", category: "DateCreated" },
     { name: "Experiment", category: "ExperimentName" },
     { name: "ID", category: "Id" },
     { name: "Instrument", category: "InstrumentName" },
+    { name: "Number", category: "Number" },
     { name: "Size", category: "TotalSize" },
+    { name: "Status", category: "Status" },
   ];
   private currentSortChoice = this.sortList[0];
-  private currentSortDir = "desc";
-  private pageSize = 10;
-  private currentPage = 1;
-  private totalExperiments = 0;
 
+  // Once component sucessfully mounted - axios call the API
+  // Axios is also nice to provide an error if API fails
   mounted() {
     axios
       .get("https://run.mocky.io/v3/e6650d4a-69a3-4fb2-bad8-43bea7546248")
       .then((response) => {
-        // JSON responses are automatically parsed.
-        //this.experiments = response.data.Response.Items;
+        // get mocky JSON object from API
+        // merge mocky JSON object properties with our empty blankExperiment
+        // push empty array experimentListAxios with 'items'
+        let experimentListAxios: Array<Experiment> = [];
         for (let experiment of response.data.Response.Items) {
           let formattedExperiment: Experiment = {
-            ...defaultExperiment,
+            ...blankExperiment,
             ...experiment,
           };
-          //console.log(formattedExperiment);
           experimentListAxios.push(formattedExperiment);
         }
-        //console.log("experimentAxios" + experimentListAxios);
+
+        // store values in variables after experimentListAxios is made
         this.experimentsList = experimentListAxios;
         this.pageSize = response.data.Response.DisplayedCount;
         this.totalExperiments = response.data.Response.TotalCount;
+        this.currentSortDir = response.data.Response.SortDir.toLowerCase();
+        this.pageEnd = Math.ceil(this.totalExperiments / this.pageSize);
       })
       .catch((e) => {
         // console logs error
@@ -193,24 +234,28 @@ export default class MyExperiments extends Vue {
       });
   }
 
+  //
+  // paginatedView() returns a filtered view of the experimentsList
+  // Runs each time experimentList is updated
+  //
+  // @return {Array<Object>} - experimentList subset based on currentPage and pageSize
+  //
+  // https://www.raymondcamden.com/2018/02/08/building-table-sorting-and-pagination-in-vuejs//
+  //
   get paginatedView() {
-    return this.experimentsList
-      .sort((a, b) => {
-        let modifier = 1;
-        if (this.currentSortDir === "desc") modifier = -1;
-        a[this.currentSortChoice.category].toString().toUpperCase() >
-        b[this.currentSortChoice.category].toString().toUpperCase()
-          ? -1 * modifier
-          : 1 * modifier;
-        return 0;
-      })
-      .filter((row, index) => {
-        let start = (this.currentPage - 1) * this.pageSize;
-        let end = this.currentPage * this.pageSize;
-        if (index >= start && index < end) return true;
-      });
+    return this.experimentsList.filter((row, index) => {
+      let start = (this.currentPage - 1) * this.pageSize;
+      let end = this.currentPage * this.pageSize;
+      if (index >= start && index < end) return true;
+    });
   }
 
+  //
+  // nextPage() executes on click from button
+  // Increments the current page number to re-render the paginated view
+  // prevPage() executes on click from button
+  // Reduces the current page number to re-render the paginated view
+  //
   public nextPage() {
     if (this.currentPage * this.pageSize < this.experimentsList.length)
       this.currentPage++;
@@ -219,59 +264,55 @@ export default class MyExperiments extends Vue {
     if (this.currentPage > 1) this.currentPage--;
   }
 
+  //
+  // updateSortChoice() updates the current sort
+  // Then executes sortExperiments as long as the type matches
+  //
   public updateSortChoice(sortChoice: sortItem): void {
     this.currentSortChoice = sortChoice;
-    let type = typeof defaultExperiment[this.currentSortChoice.category];
-    console.log(type);
+    let type = typeof blankExperiment[this.currentSortChoice.category];
     if (type === "string" || type === "number") {
       this.sortExperiments(type);
     }
   }
 
+  //
+  // toggleSortOrder() updates the current sort direction
+  // Then executes sortExperiments as long as the type matches
+  //
   public toggleSortOrder() {
     this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
-    let type = typeof defaultExperiment[this.currentSortChoice.category];
+    let type = typeof blankExperiment[this.currentSortChoice.category];
     if (type === "string" || type === "number") {
       this.sortExperiments(type);
     }
   }
 
+  //
+  // sortExperiments() takes a type and chooses the appropriate sort for experimentList
+  //
+  // @param {String} type - type of the Object[key], string is default
+  //
   public sortExperiments(type: "string" | "number" = "string"): void {
-    console.log("sortExperiments" + type);
-    if (this.currentSortDir === "asc" && type === "number") {
-      console.log("number worked! sort!");
-      console.log(this.experimentsList[0][this.currentSortChoice.category]);
-      this.experimentsList = this.experimentsList.sort((a, b) =>
-        a[this.currentSortChoice.category] > b[this.currentSortChoice.category]
-          ? 1
-          : -1
+    let category = this.currentSortChoice.category;
+    if (this.currentSortDir === "asc") modifier = -1;
+    if (type === "number") {
+      this.experimentsList.sort((a, b) =>
+        a[category] > b[category] ? -1 * modifier : 1 * modifier
       );
-    } else if (this.currentSortDir === "desc" && type === "number") {
-      console.log("number worked! sort!");
-      this.experimentsList = this.experimentsList.sort((a, b) =>
-        a[this.currentSortChoice.category] > b[this.currentSortChoice.category]
-          ? -1
-          : 1
-      );
-    } else if (this.currentSortDir === "asc") {
-      this.experimentsList = this.experimentsList.sort((a, b) =>
-        a[this.currentSortChoice.category].toString().toUpperCase() >
-        b[this.currentSortChoice.category].toString().toUpperCase()
-          ? 1
-          : -1
-      );
-    } else if (this.currentSortDir === "desc") {
-      this.experimentsList = this.experimentsList.sort((a, b) =>
-        a[this.currentSortChoice.category].toString().toUpperCase() >
-        b[this.currentSortChoice.category].toString().toUpperCase()
-          ? -1
-          : 1
+    } else {
+      this.experimentsList.sort((a, b) =>
+      a[category].toString().toUpperCase() >
+      b[category].toString().toUpperCase()
+        ? -1 * modifier
+        : 1 * modifier
       );
     }
   }
 
+  // toggles the sort menu control
   public toggleSortControl(): void {
-    this.activeSort = !this.activeSort;
+    this.activeSortMenu = !this.activeSortMenu;
   }
 
   //
@@ -302,13 +343,10 @@ export default class MyExperiments extends Vue {
   // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
   public formatBytes(bytes: number, decimals = 2): string {
     if (bytes === 0) return "0 Bytes";
-
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
@@ -319,35 +357,49 @@ export default class MyExperiments extends Vue {
   // @param {String} key - json object key
   // @return {any} - e.g. if object key has "Date" then it will return a local date string
   //
+  // I'm kinda on the fence about the way I created this function
+  //
+  // Con - This function is rerun everytime the view is re-rendered
+  //       considering that things mostly stay the same - it feels 
+  //       like a waste. Perhaps is better to run format once and store 
+  //       in another array with extra properties.
+  
   public tableCellFormatter(
     value: number | string | UserOwnedBy | Instrument,
     key: string
   ) {
-    console.log("Tablecell Formatter counter!");
+
+    // Conditional that formats the date and returns a string
     if (key.includes("Date")) {
-      // Conditional that formats the date and returns a string
-      //console.log("Date: " + value);
       let date = new Date(value.toString());
       return date.toLocaleDateString();
-    } else if (key === "ExperimentName") {
-      // Conditional that formats the ExpirementName by applying the gradient CSS class
+    } 
+
+    // Conditional that formats the ExpirementName by applying the gradient CSS class
+    else if (key === "ExperimentName") {
       return '<div class="experiment-name-gradient">' + value + "</div>";
-    } else if (key === "TotalSize") {
-      // Conditional that formats the ExpirementName by applying the gradient CSS class
+    } 
+
+    // Conditional right aligns and converts the size to Bytes
+    else if (key === "TotalSize") {
       return (
         '<div style="text-align: right">' + this.formatBytes(+value) + "</div>"
       );
-    } else if (typeof value === "object" && key === "UserOwnedBy") {
-      // Conditional that formats the object for UserOwnedBy
-      // There is probably a better way to directly match type instead of what I made
+    } 
+    
+    // Conditional that formats the object for UserOwnedBy
+    // There is probably a better way to directly match type instead of what I made
+    else if (typeof value === "object" && key === "UserOwnedBy") {
       if ("Id" in value) {
         let userId: string = value.Id;
         let userName: string = value.Name;
         return "<div>" + userId + "</div><div>" + userName + "</div>";
       }
-    } else if (typeof value === "object" && key === "Instrument") {
-      // Conditional that formats the object for Instrument
-      // There is probably a better way to directly match type instead of what I made
+    } 
+    
+    // Conditional that formats the object for Instrument
+    // There is probably a better way to directly match type instead of what I made
+    else if (typeof value === "object" && key === "Instrument") { 
       if ("InstrumentId" in value) {
         let instrumentId: number = value.InstrumentId;
         let instrumentName: string = value.Name;
@@ -355,9 +407,21 @@ export default class MyExperiments extends Vue {
           "<div>" + instrumentId + "</div><div>" + instrumentName + "</div>"
         );
       }
-    } else {
+    } 
+    
+    // Otherwise - just return the value as is
+    else {
       return value;
     }
+
+    // NOTE: I wanted to try and bold the whole row when Status = Fail
+    // But traversing or mutating the parent <tr> from value of child <td> 
+    // did not work properly and probably bad practice. Perhaps that is where Vuex
+    // for better state management would help. 
+    //
+    // However I did notice that the mockup had Status being the first column
+    // In that instance, it is possible to instead bold every <td> henceforth in that row
+    // after running a simple if statement. 
   }
 }
 </script>

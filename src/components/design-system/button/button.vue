@@ -16,7 +16,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class Button extends Vue {
 
   @Prop({default: 'w-button-primary'}) readonly className!: string
-  @Prop({default: 'button'}) readonly text!: string
+  @Prop() readonly text!: string
   @Prop({default: false}) readonly isSubmit!: Boolean
   @Prop({default: false}) readonly isDisabled!: Boolean
 
